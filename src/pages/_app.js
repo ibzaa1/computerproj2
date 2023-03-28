@@ -1,5 +1,22 @@
-import '@/styles/globals.css'
+// import Navbar from '/components/navbar';
+import '../styles/globals.css';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+// // import Font Awesome CSS
+// import '@fortawesome/fontawesome-svg-core/styles.css';
+
+// import { config } from '@fortawesome/fontawesome-svg-core';
+// // Tell Font Awesome to skip adding the CSS automatically
+// // since it's already imported above
+// config.autoAddCss = false;
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      {/* <Navbar /> */}
+
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default MyApp;
