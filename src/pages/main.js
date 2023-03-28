@@ -3,15 +3,15 @@ import Navbar2 from '../../components/navbar2';
 
 const Capsule = (
   <div className='grid justify-items-center pt-10 text-white'>
-    <div className='dark:bg-gray-500 border-2 p-5 text-2xl w-2/3 flex justify-center'>
-      <div className=' border-2 px-10 p-4'>
+    <div className='bg-gray-700 border-2 py-3 text-2xl w-3/5 flex justify-center rounded-lg'>
+      <div className=' border-2 p-3 rounded-lg bg-green-700'>
         <h1>Name of Capsule</h1>
       </div>
-      <div className='ml-2 border-2 px-10 flex items-center py-2 bg-red-900'>
+      <div className='ml-2 border-2 px-10 flex items-center bg-red-700 rounded-lg'>
         <h1>Timer:</h1>
         <h2 className='ml-2'>Timer Number</h2>
       </div>
-      <div className='ml-2 border-2 px-10 p-2 flex items-center'>
+      <div className='ml-2 border-2 text-white bg-blue-700 font-medium rounded-lg p-3'>
         <h1>Number Of Files</h1>
       </div>
     </div>
