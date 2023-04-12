@@ -1,7 +1,40 @@
 import Head from 'next/head';
 import Navbar2 from '../../components/navbar2';
+import Link from 'next/link';
+import { useState } from 'react';
 
-export default function Home() {
+export default function addCap() {
+  const [capName, setCapName] = useState('');
+  const [capFiles, setCapFiles] = useState('');
+  const [capTime, setCapTime] = useState('');
+  const [capDate, setCapDate] = useState('');
+
+  var date = new Date().getDate(); //To get the Current Date
+  var month = new Date().getMonth() + 1; //To get the Current Month
+  var year = new Date().getFullYear(); //To get the Current Year
+  var hours = new Date().getHours(); //To get the Current Hours
+  var min = new Date().getMinutes(); //To get the Current Minutes
+
+  console.log({
+    date,
+    month,
+    year,
+    hours,
+    min,
+  });
+
+  const handSubmit = (e) => {
+    e.preventDefault();
+
+    const addCap = {
+      capName,
+      capFiles,
+      capTime,
+      capDate,
+    };
+    console.log(addCap);
+  };
+
   return (
     <>
       <Head>
@@ -11,67 +44,72 @@ export default function Home() {
       </Head>
       <Navbar2 />
 
-      <div class='dark:bg-gray-900 h-screen'>
-        <div class='flex flex-col items-center pt-8 mx-auto'>
-          <div class='rounded-xl dark:bg-gray-800'>
-            <div class='p-6 md:space-y-6 sm:p-8'>
-              <h1 class='font-bold text-gray-900 text-2xl text-white'>
+      <div className='dark:bg-gray-900 h-screen'>
+        <div className='flex flex-col items-center pt-8 mx-auto'>
+          <div className='rounded-xl dark:bg-gray-800'>
+            <div className='p-6 md:space-y-6 sm:p-8'>
+              <h1 className='font-bold text-gray-900 text-2xl text-white'>
                 Add Capsule
               </h1>
-              <form class='space-y-4 md:space-y-6' action='#'>
+              <form className='space-y-4 md:space-y-6' action='#'>
                 <div>
-                  <h1 class='mb-2 text-lg text-white'>Capsule Name</h1>
+                  <h1 className='mb-2 text-lg text-white'>Capsule Name</h1>
                   <input
                     type='text'
                     name='capsuleName'
-                    class=' sm:text-sm rounded-lg w-full p-2.5 bg-gray-700 border-gray-600 text-white'
+                    className=' sm:text-sm rounded-lg w-full p-2.5 bg-gray-700 border-gray-600 text-white'
                     required=''
+                    onChange={(e) => setCapName(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label class='block mb-2 text-lg text-gray-900 dark:text-white'>
+                  <label className='block mb-2 text-lg text-gray-900 dark:text-white'>
                     Add Capsule Input (Files)
                   </label>
                   <input
                     type='file'
-                    class='sm:text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 text-white'
+                    className='sm:text-sm rounded-lg w-full p-2.5 dark:bg-gray-700 text-white'
                     required=''
                   />
                 </div>
                 <div>
-                  <h1 class='mb-2 text-lg text-white'>Capsule Time And Date</h1>
+                  <h1 className='mb-2 text-lg text-white'>
+                    Capsule Time And Date
+                  </h1>
                   <input
                     type='time'
                     name='capsuleTime'
-                    class='sm:text-sm rounded-lg p-2.5 bg-gray-700 text-white'
+                    className='sm:text-sm rounded-lg p-2.5 bg-gray-700 text-white'
                     required=''
+                    onChange={() => setCapTime()}
                   />
                   <input
                     type='date'
                     name='capsuleTime'
-                    class='sm:text-sm rounded-lg p-2.5 dark:bg-gray-700 text-white ml-2'
+                    className='sm:text-sm rounded-lg p-2.5 dark:bg-gray-700 text-white ml-2'
                     required=''
+                    onChange={() => setCapDate()}
                   />
                 </div>
-                <div class='flex items-center'>
+                <div className='flex items-center'>
                   <input type='checkbox' />
-                  <p class='dark:text-red-500 ml-2'>
+                  <p className='dark:text-red-500 ml-2'>
                     I agree that files will be locked and inaccessable
                   </p>
                 </div>
                 <div className='flex justify-center'>
                   <button
                     type='submit'
-                    class='w-2/5 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 mr-5'
+                    className='w-2/5 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 mr-5'
+                    onClick={handSubmit}
                   >
                     Add Capsule
                   </button>
-                  <button
-                    type='submit'
-                    class='w-2/5 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700'
-                  >
-                    Cancel
-                  </button>
+                  <div className='w-2/5 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700'>
+                    <Link href='./main'>
+                      <button type='submit'>Cancel</button>
+                    </Link>
+                  </div>
                 </div>
               </form>
             </div>

@@ -3,9 +3,6 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <nav className='flex filter drop-shadow-md bg-gray-800 px-10 py-4 items-center'>
-      <h6 className='text-white'>
-        <Link href='../../main'>Main Page</Link>
-      </h6>
       <div className='w-3/12 flex items-center'>
         <Link className='text-2xl text-white font-semibold' href='./login'>
           Capsulate
